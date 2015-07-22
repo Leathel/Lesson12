@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master.master.cs" Inherits="Lesson12.master" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>This is lesson 5</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+    <!-- Latest compiled and minified JavaScript -->
+</head>
+<body>
+    <nav class="nav navbar-default">
+        <a href="/admin/MainMenu.aspx" class="navbar-brand">Home</a>
+        <ul class="nav navbar-nav">
+            <asp:PlaceHolder runat="server" ID="plhPublic">
+                <li><a href="/Register.aspx">Register</a></li>
+                <li><a href="/Login.aspx">Login</a></li>
+            </asp:PlaceHolder>
+            
+            <asp:PlaceHolder runat="server" ID="plhPrivate">
+                <li><a href="/admin/departments.aspx">Departments</a></li>
+                <li><a href="/admin/courses.aspx">Courses</a></li>
+                <li><a href="/admin/Students.aspx">Students</a></li>
+
+                <li><a href="/Logout.aspx">Logout</a></li>
+            </asp:PlaceHolder>
+            
+
+
+        </ul>
+    </nav>
+    <div>
+        <asp:PlaceHolder runat="server" ID="plhError">
+            <asp:TextBox runat="server" ID="ErrorMsgTextBox" Text=""></asp:TextBox>
+        </asp:PlaceHolder>
+    </div>
+    <form id="form1" runat="server" class="form-horizontal">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <footer class="alert alert-info">
+        @2015 - Enterprise Computing Ben Ross
+    </footer>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            jQuery("a").filter(function () {
+                return this.innerHTML.indexOf("Delete") == 0;
+            }).click(function () {
+                return confirm("Are you sure you want to delete this record?");
+            });
+        });
+
+    </script>
+</body>
+</html>
