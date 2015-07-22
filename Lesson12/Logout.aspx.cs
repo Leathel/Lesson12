@@ -14,16 +14,16 @@ namespace Lesson12
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
                 authenticationManager.SignOut();
                 Response.Redirect("~/Login.aspx");
-            }
-            catch (System.Exception)
-            {
-                Response.Redirect("/Error.aspx");
-            }
+            //}
+            //catch (System.Exception)
+            //{
+            //    Response.Redirect("/Error.aspx");
+            //}
 
         }
     }
