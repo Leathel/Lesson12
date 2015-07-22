@@ -19,8 +19,8 @@ namespace Lesson12
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 var userStore = new UserStore<IdentityUser>();
                 var userManager = new UserManager<IdentityUser>(userStore);
                 var user = userManager.Find(txtUserName.Text, txtPassword.Text);
@@ -38,11 +38,11 @@ namespace Lesson12
                     lblStatus.Text = "Invalid username or password.";
 
                 }
-            }
-            catch (System.Exception)
-            {
-                Response.Redirect("/Error.aspx");
-            }
+            //}
+            //catch (System.Exception)
+            //{
+            //    Response.Redirect("/MainMenu.aspx");
+            //}
 
         }
     }
